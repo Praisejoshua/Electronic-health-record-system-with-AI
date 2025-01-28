@@ -34,7 +34,7 @@ body {
 
 .dashboard {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
 }
@@ -110,8 +110,57 @@ footer a {
 }
 
 /* Responsive styles */
+@media (max-width: 1024px) {
+    .welcome-message {
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 22px;
+    }
+}
+
 @media (max-width: 768px) {
-    .dashboard {
-        grid-template-columns: 1fr;
+    .dashboard-header h1 {
+        font-size: 20px;
+    }
+
+    .tile {
+        height: 200px;
+    }
+
+    .tile-content h2 {
+        font-size: 20px;
+    }
+
+    .tile-icon {
+        font-size: 35px;
+    }
+
+    footer {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-header h1 {
+        font-size: 18px;
+    }
+
+    .tile {
+        height: 180px;
+    }
+
+    .tile-content h2 {
+        font-size: 18px;
+    }
+
+    .tile-icon {
+        font-size: 30px;
+    }
+
+    .welcome-message {
+        font-size: 14px;
     }
 }

@@ -8,6 +8,7 @@ body {
 .header h1 {
     font-size: 2.5rem;
     font-weight: bold;
+    text-align: center;
 }
 
 .styled-table {
@@ -31,6 +32,7 @@ body {
     padding: 15px;
     text-align: center;
     border-bottom: 1px solid #ddd;
+    word-wrap: break-word;
 }
 
 .styled-table tbody tr:hover {
@@ -69,11 +71,11 @@ body {
 
 .button-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-bottom: 20px;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
-
 
 .add-button {
     padding: 10px 20px;
@@ -83,8 +85,64 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    white-space: nowrap;
 }
 
 .add-button:hover {
     background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .styled-table thead {
+        display: none;
+    }
+
+    .styled-table tbody, .styled-table tr, .styled-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .styled-table td {
+        text-align: left;
+        padding: 10px;
+        position: relative;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .styled-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #2c3e50;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .add-button {
+        width: 100%;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .styled-table td {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 5px;
+    }
 }

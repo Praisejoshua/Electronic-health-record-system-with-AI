@@ -10,15 +10,23 @@ body {
 
 .container {
     display: flex;
+    flex-direction: column;
     width: 90%;
     max-width: 1200px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow: hidden;
+    background-color: #fff;
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
 }
 
 .leftbox {
-    width: 30%;
+    width: 100%;
     background-color: #2c3e50;
     color: #fff;
     padding: 20px;
@@ -27,9 +35,16 @@ body {
     justify-content: space-between;
 }
 
+@media (min-width: 768px) {
+    .leftbox {
+        width: 30%;
+    }
+}
+
 .leftbox nav {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 .leftbox nav a button {
@@ -37,7 +52,6 @@ body {
     color: #fff;
     border: none;
     padding: 10px;
-    margin-bottom: 10px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -55,9 +69,16 @@ body {
 }
 
 .rightbox {
-    width: 70%;
+    width: 100%;
     background-color: #fff;
-    padding: 40px;
+    padding: 20px;
+}
+
+@media (min-width: 768px) {
+    .rightbox {
+        width: 70%;
+        padding: 40px;
+    }
 }
 
 .innerlog h1 {
@@ -96,7 +117,10 @@ table td {
 
 .inner:focus {
     background-color: #45607b;
+    color: #fff;
     outline: none;
+    border-color: #34495e;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 input[type="submit"] {
@@ -124,6 +148,7 @@ input[type="submit"]:hover {
     margin-bottom: 10px;
     color: #fff;
     font-weight: bold;
+    font-size: 14px;
 }
 
 .alert-success {
@@ -140,4 +165,47 @@ input[type="submit"]:hover {
 
 .alert-info {
     background-color: #2196F3; /* Blue */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .leftbox {
+        padding: 10px;
+    }
+
+    .leftbox nav a button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .rightbox {
+        padding: 20px;
+    }
+
+    .innerlog h1 {
+        font-size: 24px;
+    }
+
+    .innerlog h4 {
+        font-size: 14px;
+    }
+
+    table td {
+        display: block;
+        width: 100%;
+    }
+
+    .inner {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    input[type="submit"] {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .alert {
+        font-size: 12px;
+    }
 }

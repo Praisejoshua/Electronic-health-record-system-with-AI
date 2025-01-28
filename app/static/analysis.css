@@ -6,6 +6,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: #f4f4f4;
+    padding: 20px; /* Added padding for smaller screens */
 }
 
 .container {
@@ -34,7 +35,7 @@ body {
 }
 
 .table-container {
-    overflow-x: auto;
+    overflow-x: auto; /* Ensure table is scrollable on smaller screens */
 }
 
 table {
@@ -75,6 +76,13 @@ tbody tr:hover {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 10px; /* Add spacing between wrapped items */
+}
+
+.navbar h1 {
+    font-size: 24px; /* Adjust heading size for better fit */
+    margin: 0;
 }
 
 .navbar a button {
@@ -90,4 +98,63 @@ tbody tr:hover {
 
 .navbar a button:hover {
     background-color: #45607b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    thead th {
+        padding: 10px;
+    }
+
+    tbody td {
+        padding: 8px;
+    }
+
+    .navbar h1 {
+        font-size: 20px;
+    }
+
+    .navbar a button {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .header p {
+        font-size: 12px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    thead th, tbody td {
+        padding: 6px;
+    }
+
+    .navbar h1 {
+        font-size: 18px;
+    }
+
+    .navbar a button {
+        font-size: 10px;
+        padding: 6px 8px;
+    }
 }
