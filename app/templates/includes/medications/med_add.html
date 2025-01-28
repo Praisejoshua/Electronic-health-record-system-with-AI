@@ -1,0 +1,36 @@
+<!-- Add Patient Modal -->
+<div class="modal fade" id="addMedicationModal" tabindex="-1" role="dialog" aria-labelledby="addMedicationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addMedicationModalLabel">Add New Medication</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Medication Form -->
+                <form  method="POST">
+                    {{ form.csrf_token }}
+                    <div class="form-group">
+                        <label for="name">{{ form.name.label }}</label>
+                        {{ form.name(class="form-control", id="name") }}
+                    </div>
+                    <div class="form-group">
+                        <label for="brand">{{ form.brand.label }}</label>
+                        {{ form.brand(class="form-control", id="brand") }}
+                    </div>
+                    <div class="form-group">
+                        <label for="description">{{ form.description.label }}</label>
+                        {{ form.description(class="form-control", id="description") }}
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success">Add Medications</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

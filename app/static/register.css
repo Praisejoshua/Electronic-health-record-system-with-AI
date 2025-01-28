@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.leftbox {
+    width: 30%;
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.leftbox nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.leftbox nav a button {
+    background-color: #34495e;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.leftbox nav a button:hover {
+    background-color: #45607b;
+}
+
+.btm-left h5 {
+    text-align: center;
+    margin-top: auto;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.rightbox {
+    width: 70%;
+    background-color: #fff;
+    padding: 40px;
+}
+
+.innerlog h1 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.innerlog h4 {
+    font-size: 16px;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+form {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    margin: auto;
+    border-spacing: 15px;
+}
+
+table td {
+    width: 50%;
+}
+
+.inner {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.inner:focus {
+    background-color: #45607b;
+    outline: none;
+}
+
+input[type="submit"] {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45607b;
+}
+
+.flash-messages {
+    margin: 20px 0;
+}
+
+.alert {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.alert-success {
+    background-color: #4CAF50; /* Green */
+}
+
+.alert-error {
+    background-color: #F44336; /* Red */
+}
+
+.alert-warning {
+    background-color: #FFC107; /* Yellow */
+}
+
+.alert-info {
+    background-color: #2196F3; /* Blue */
+}

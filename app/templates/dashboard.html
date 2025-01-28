@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Dashboard</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename = 'dashboard.css') }}">
+      <style>
+      </style>
+   </head>
+   <body>
+      <header class="dashboard-header">
+         <h1><span><a href="{{ url_for('health') }}" class="home">Home</a></span> Dashboard</h1>
+      </header>
+      <div class="welcome-message" style="font-style: italic;">
+         Welcome to your dashboard! Manage patients, doctors, medications, and rooms effortlessly.
+      </div>
+      <main class="dashboard">
+         <a href="{{ ('patients') }}" class="tile">
+            <img src="{{ url_for('static', filename='images/patients.avif') }}" alt="Patients">
+            <div class="tile-content">
+               <div class="tile-icon">
+                  <i class="fas fa-user"></i>
+               </div>
+               <h2>Patients</h2>
+               <!-- <p class="tile-stats">125 Registered</p> -->
+            </div>
+         </a>
+         <a href="{{ url_for('doctors') }}" class="tile">
+            <img src="{{ url_for('static', filename='images/doctor.webp') }}" alt="Doctors">
+            <div class="tile-content">
+               <div class="tile-icon">
+                  <i class="fas fa-user-md"></i>
+               </div>
+               <h2>Doctors</h2>
+               <!-- <p class="tile-stats">25 Active</p> -->
+            </div>
+         </a>
+         <a href="{{ url_for('medications') }}" class="tile">
+            <img src="{{ url_for('static', filename='images/medications.avif') }}" alt="Medications">
+            <div class="tile-content">
+               <div class="tile-icon">
+                  <i class="fas fa-pills"></i>
+               </div>
+               <h2>Medications</h2>
+               <!-- <p class="tile-stats">50 Available</p> -->
+            </div>
+         </a>
+         <a href="{{ url_for('rooms') }}" class="tile">
+            <img src="{{ url_for('static', filename='images/rooms.avif') }}" alt="Rooms">
+            <div class="tile-content">
+               <div class="tile-icon">
+                  <i class="fas fa-hospital"></i>
+               </div>
+               <h2>Rooms</h2>
+               <!-- <p class="tile-stats">12 Occupied</p> -->
+            </div>
+         </a>
+      </main>
+      <footer>
+         <p>&copy; 2025 Group 1 Hospital Dashboard | <a href="#">Privacy Policy</a></p>
+      </footer>
+      <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+   </body>
+</html>

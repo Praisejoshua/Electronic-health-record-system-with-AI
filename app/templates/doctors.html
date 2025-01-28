@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Doctors</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{{ url_for('static', filename = 'doctors.css') }}">
+   </head>
+   <body>
+      <div class="button-container">
+         <!-- Back Button -->
+         <a href="{{ url_for('dashboard') }}" class="add-button">Back</a>
+         <!-- Add Patient Modal -->
+         {% include 'includes/doctors/add_modal.html' %}
+         <button class="add-button" data-toggle="modal" data-target="#addDoctorModal">Add Doctors</button>
+      </div>
+      <h1 style="font-weight: bold;">Doctor Management</h1>
+      <table class="styled-table">
+         <thead>
+            <tr>
+               <th scope="col">ID</th>
+               <th scope="col">First Name</th>
+               <th scope="col">Last Name</th>
+               <th scope="col">Address</th>
+               <th scope="col">Options</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for doctor in doctor %}
+            <tr>
+               <td>{{ doctor.id }}</td>
+               <td>{{ doctor.first_name }}</td>
+               <td>{{ doctor.last_name }}</td>
+               <td>{{ doctor.address }}</td>
+               <td>
+                  {% include 'includes/doctors/edit_modal.html' %}
+                  <button class="btn edit" data-toggle="modal" data-target="#editDoctorModal{{ doctor.id }}">
+                  Edit
+                  </button>
+                  {% include 'includes/doctors/delete_modal.html' %}
+                  <button class="btn delete" data-toggle="modal" data-target="#deleteDoctorModal" data-id="{{ doctor.id }}">Delete</button>
+               </td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+   </body>
+</html>

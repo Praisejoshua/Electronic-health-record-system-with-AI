@@ -1,0 +1,46 @@
+<!-- Add Patient Modal -->
+<div class="modal fade" id="addPatientModal" tabindex="-1" role="dialog" aria-labelledby="addPatientModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addPatientModalLabel">Add New Patient</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add Patient Form -->
+                <form method="POST">
+                    {{ form.csrf_token }}
+                    <div class="form-group">
+                        <label for="firstName">{{ form.firstname.label }}</label>
+                        {{ form.firstname(class="form-control", id="firstName") }}
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">{{ form.lastname.label }}</label>
+                        {{ form.lastname(class="form-control", id="lastName") }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="insurance">{{ form.insurance.label }}</label>
+                        {{ form.insurance(class="form-control", id="insurance") }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">{{ form.address.label }}</label>
+                        {{ form.address(class="form-control", id="address") }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone_number">{{ form.phone_number.label }}</label>
+                        {{ form.phone_number(class="form-control", id="phone_number") }}
+                    </div>
+                    <button type="submit" class="btn btn-success">Add Patient</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

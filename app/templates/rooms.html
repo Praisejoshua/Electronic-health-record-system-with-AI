@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Rooms</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{{ url_for('static', filename = 'rooms.css') }}">
+   </head>
+   <body>
+      <div class="button-container">
+         <!-- Back Button -->
+         <a href="{{ url_for('dashboard') }}" class="add-button">Back</a>
+         <!-- Add Patient Modal -->
+         {% include 'includes/rooms/rooms_add.html' %}
+         <button class="add-button" data-toggle="modal" data-target="#addRoomModal">Add Room</button>
+      </div>
+      <h1 style="font-weight: bold;">Rooms Management</h1>
+      <table class="styled-table">
+         <thead>
+            <tr>
+               <th scope="col">ID</th>
+               <th scope="col">Room Type</th>
+               <th scope="col">Available</th>
+               <th scope="col">Options</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for room in room %}
+            <tr>
+               <td>{{ room.id }}</td>
+               <td>{{ room.room_type }}</td>
+               <td>{{ room.available }}</td>
+               <td>
+                  {% include 'includes/rooms/rooms_edit.html' %}
+                  <button class="btn edit" data-toggle="modal" data-target="#editRoomModal{{ room.id }}">Edit</button>
+                  {% include "includes/rooms/rooms_delete.html" %}
+                  <button class="btn delete" data-toggle="modal" data-target="#deleteRoomModal" data-id="{{ room.id }}">Delete</button>
+               </td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+   </body>
+</html>

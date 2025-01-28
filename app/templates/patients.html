@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Patients</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{{ url_for('static', filename = 'patients.css') }}">
+   </head>
+   <body>
+      <div class="button-container">
+         <!-- Back Button -->
+         <a href="{{ url_for('dashboard') }}" class="add-button">Back</a>
+         <!-- Add Patient Modal -->
+         {% include 'includes/patients/patient_add_modal.html' %}
+         <button class="add-button" data-toggle="modal" data-target="#addPatientModal">Add Patient</button>
+      </div>
+      <h1 style="font-weight: bold;">Patient Management</h1>
+      <table class="styled-table">
+         <thead>
+            <tr>
+               <th scope="col">ID</th>
+               <th scope="col">First Name</th>
+               <th scope="col">Last Name</th>
+               <th scope="col">Insurance</th>
+               <th scope="col">Address</th>
+               <th scope="col">Phone Number</th>
+               <th scope="col">Options</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for patient in patient %}
+            <tr>
+               <td>{{ patient.id }}</td>
+               <td>{{ patient.first_name }}</td>
+               <td>{{ patient.last_name }}</td>
+               <td>{{ patient.insurance }}</td>
+               <td>{{ patient.address }}</td>
+               <td>{{ patient.phone_number }}</td>
+               <td>
+                  <!-- Edit Patient Modal -->
+                  {% include "includes/patients/patient_edit.html" %}
+                  <button class="btn edit" data-toggle="modal" data-target="#editPatientModal{{ patient.id }}">Edit</button>
+                  {% include 'includes/patients/delete_patient.html' %}
+                  <button class="btn delete" data-toggle="modal" data-target="#deletePatientModal" data-id="{{ patient.id }}">Delete</button>
+               </td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+   </body>
+</html>

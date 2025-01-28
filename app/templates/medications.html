@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Medications</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{{ url_for('static', filename = 'medications.css') }}">
+   </head>
+   <body>
+      <div class="button-container">
+         <!-- Back Button -->
+         <a href="{{ url_for('dashboard') }}" class="add-button">Back</a>
+         <!-- Add Medication Modal -->
+         {% include 'includes/medications/med_add.html' %}
+         <button class="add-button" data-toggle="modal" data-target="#addMedicationModal">Add Medications</button>
+      </div>
+      <h1 style="font-weight: bold;">Medications Management</h1>
+      <table class="styled-table">
+         <thead>
+            <tr>
+               <th scope="col">ID</th>
+               <th scope="col">Name</th>
+               <th scope="col">Brand</th>
+               <th scope="col">Descriptions</th>
+               <th scope="col">Options</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for medication in medication %}
+            <tr>
+               <td>{{ medication.id }}</td>
+               <td>{{ medication.name }}</td>
+               <td>{{ medication.brand }}</td>
+               <td>{{ medication.description }}</td>
+               <td>
+                  <!-- Include the modal -->
+                  {% include 'includes/medications/med_edit.html' %}
+                  <!-- Button to trigger the edit modal -->
+                  <!-- Button to trigger the edit modal -->
+                  <button class="btn edit" data-toggle="modal" data-target="#editMedicationModal" 
+                     data-id="{{ medication.id }}" 
+                     data-name="{{ medication.name }}" 
+                     data-brand="{{ medication.brand }}" 
+                     data-description="{{ medication.description }}">
+                  Edit
+                  </button>
+                  {% include "includes/medications/med_delete.html" %}
+                  <button class="btn delete" data-toggle="modal" data-target="#deleteMedicationModal" data-id="{{ medication.id }}">Delete</button>
+               </td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+   </body>
+</html>

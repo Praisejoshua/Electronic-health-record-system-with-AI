@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Heart Attack Age Prediction</title>
+      <link rel="stylesheet" href="{{url_for('static', filename='register.css')}}">
+   </head>
+   <body>
+      <div class="container">
+         <!-- Left Navigation Panel -->
+         <div class="leftbox">
+            <nav class="nav">
+               <a href="{{url_for('health')}}"><button>Home</button></a>
+               <a href="{{url_for('dashboard')}}"><button>Dashboard</button></a>
+               <a href="{{ url_for('predictions') }}"><button>Analytics</button></a>
+               <a href="#"><button>Doctor</button></a>
+               <a href="#"><button>Help</button></a>
+            </nav>
+            <div class="btm-left">
+               <h5>Dr. Susan Igbor</h5>
+            </div>
+         </div>
+         <!-- Right Content Panel -->
+         <div class="rightbox">
+            <div class="innerlog">
+               <h1 align="center">Heart Attack Age Prediction</h1>
+               <h4 align="center">Please provide the required details accurately</h4>
+               <form method="POST">
+                  {{ form.hidden_tag() }}
+                  <table>
+                     <tr>
+                        <td>{{ form.anaemia.label }}<br>{{ form.anaemia(size=32, class_='inner') }}</td>
+                        <td>{{ form.creatinine_phosphokinase.label }}<br>{{ form.creatinine_phosphokinase(size=32, class_='inner') }}</td>
+                     </tr>
+                     <tr>
+                        <td>{{ form.diabetes.label }}<br>{{ form.diabetes(size=32, class_='inner') }}</td>
+                        <td>{{ form.ejection_fraction.label }}<br>{{ form.ejection_fraction(size=32, class_='inner') }}</td>
+                     </tr>
+                     <tr>
+                        <td>{{ form.high_blood_pressure.label }}<br>{{ form.high_blood_pressure(size=32, class_='inner') }}</td>
+                        <td>{{ form.platelets.label }}<br>{{ form.platelets(size=32, class_='inner') }}</td>
+                     </tr>
+                     <tr>
+                        <td>{{ form.serum_creatinine.label }}<br>{{ form.serum_creatinine(size=32, class_='inner') }}</td>
+                        <td>{{ form.serum_sodium.label }}<br>{{ form.serum_sodium(size=32, class_='inner') }}</td>
+                     </tr>
+                     <tr>
+                        <td>{{ form.sex.label }}<br>{{ form.sex(size=32, class_='inner') }}</td>
+                        <td>{{ form.smoking.label }}<br>{{ form.smoking(size=32, class_='inner') }}</td>
+                     </tr>
+                     <tr>
+                        <td colspan="2">
+                           <input type="submit" value="Predict" class="btn btn-primary">
+                        </td>
+                     </tr>
+                  </table>
+               </form>
+               <div class="flash-messages">
+                  {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                  {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                     {{ message }}
+                  </div>
+                  {% endfor %}
+                  {% endif %}
+                  {% endwith %}
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

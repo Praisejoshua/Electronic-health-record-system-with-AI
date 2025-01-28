@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Predictions</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='analysis.css') }}">
+   </head>
+   <body>
+      <div class="container">
+         <div class="navbar">
+            <h1>Predictions</h1>
+            <a href="{{ url_for('register') }}"><button>Back to Form</button></a>
+         </div>
+         <div class="header">
+            <p>Below are the saved predictions from the Heart Attack Age Prediction System.</p>
+         </div>
+         <div class="table-container">
+            <table>
+               <thead>
+                  <tr>
+                     <th>ID</th>
+                     <th>Anaemia</th>
+                     <th>Creatinine Phosphokinase</th>
+                     <th>Diabetes</th>
+                     <th>Ejection Fraction</th>
+                     <th>High Blood Pressure</th>
+                     <th>Platelets</th>
+                     <th>Serum Creatinine</th>
+                     <th>Serum Sodium</th>
+                     <th>Sex</th>
+                     <th>Smoking</th>
+                     <th>Predicted Age</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for prediction in predictions %}
+                  <tr>
+                     <td>{{ prediction.id }}</td>
+                     <td>{{ prediction.anaemia }}</td>
+                     <td>{{ prediction.creatinine_phosphokinase }}</td>
+                     <td>{{ prediction.diabetes }}</td>
+                     <td>{{ prediction.ejection_fraction }}</td>
+                     <td>{{ prediction.high_blood_pressure }}</td>
+                     <td>{{ prediction.platelets }}</td>
+                     <td>{{ prediction.serum_creatinine }}</td>
+                     <td>{{ prediction.serum_sodium }}</td>
+                     <td>{{ prediction.sex }}</td>
+                     <td>{{ prediction.smoking }}</td>
+                     <td>{{ prediction.predicted_age }}</td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>
